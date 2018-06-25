@@ -30,8 +30,8 @@ getScoreRanksCorrelation <- function(runA, runB){
   rownames(docScoreRank_B) = NULL
   
   # replace NA with 0
-  docScoreRank_A[is.na(docScoreRank_A)] <- 0
-  docScoreRank_B[is.na(docScoreRank_B)] <- 0
+  docScoreRank_A[is.na(docScoreRank_A)] <- 1001
+  docScoreRank_B[is.na(docScoreRank_B)] <- 1001
   
   # calculate correlaction between the two document score rank
   return(cor(docScoreRank_A$scoreRank, docScoreRank_B$scoreRank, method="kendall", use="pairwise"))
